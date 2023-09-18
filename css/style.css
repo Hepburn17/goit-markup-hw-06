@@ -845,7 +845,7 @@ address {
     border-color: var(--color-iris);
 }
 
-.modal-input:focus .modal__icon {
+.modal-input:focus .modal-icon {
     fill: var(--color-iris);
 }
 
@@ -900,13 +900,11 @@ address {
     fill: var(--color-cloud);
 }
 
-.modal-check-box:hover {
+.modal-check-box:hover, 
+.modal-checkbox:focus {
     border-color: var(--color-ocean);
 }
 
-.modal-icon-check {
-    fill: var(--color-navy-blue);
-}
 
 .modal-text {
     color: var(--color-slate);
