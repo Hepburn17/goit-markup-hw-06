@@ -10,6 +10,8 @@
     --color-dairy: #fcfcfc;
     --color-cornflower: #E7E9FC;
     --color-lightslate: #8E8F99;
+    --transition-duration: 250ms;
+    --animation-timing: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 h1,
@@ -119,7 +121,7 @@ address {
     padding: 24px 0;
     position: relative;
     display: block;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color var(--transition-duration) var(--animation-timing);
 }
 
 .link-current {
@@ -363,7 +365,7 @@ address {
     height: 40px;
     background-color: var(--color-iris);
     border-radius: 20px;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color var(--transition-duration) var(--animation-timing);
 }
 
 .team-icon {
@@ -598,7 +600,7 @@ address {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color var(--transition-duration) var(--animation-timing);
     margin: 0 auto;
 }
 
@@ -634,10 +636,10 @@ address {
     padding: 12px 24px;
     align-items: center;
     cursor: pointer;
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: fill var(--transition-duration) var(--animation-timing),
+        background-color var(--transition-duration) var(--animation-timing),
+        border-color var(--transition-duration) var(--animation-timing),
+        box-shadow var(--transition-duration) var(--animation-timing);
 }
 
 
@@ -652,7 +654,7 @@ address {
     border: 1px solid #e7e9fc;
     box-sizing: border-box;
     width: calc((100% - 48px) / 3);
-    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: box-shadow var(--transition-duration) var(--animation-timing);
 }
 
 .img-icon {
@@ -694,8 +696,8 @@ address {
     width: 100%;
     height: 100%;
     background-color: rgba(46, 47, 66, 0.4);
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity var(--transition-duration) var(--animation-timing),
+        visibility var(--transition-duration) var(--animation-timing);
 }
 
 .backdrop.is-hidden {
@@ -705,19 +707,19 @@ address {
 }
 
 .modal {
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     width: 408px;
-    min-height: 584px;
+    max-height: 100%;
     border-radius: 4px;
     box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.20), 0px 1px 3px 0px rgba(0, 0, 0, 0.12),
         0px 1px 1px 0px rgba(0, 0, 0, 0.14);
     background-color: var(--color-dairy);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 72px 24px 24px 24px;
+    transition: transform var(--transition-duration) var(--animation-timing);
 }
+
 
 .modal-close {
     padding: 0;
@@ -732,8 +734,8 @@ address {
     border-radius: 50%;
     border: 1px solid rgba(0, 0, 0, 0.1);
     background-color: var(--color-cornflower);
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color var(--transition-duration) var(--animation-timing),
+        border var(--transition-duration) var(--animation-timing);
     cursor: pointer;
 }
 
@@ -742,7 +744,7 @@ address {
     height: 8px;
     flex-shrink: 0;
     fill: var(--color-navy-blue);
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: fill var(--transition-duration) var(--animation-timing);
 }
 
 .modal-close:hover,
@@ -776,20 +778,103 @@ address {
     padding: 40px 32px;
     transform: translateY(100%);
     background-color: var(--color-iris);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform var(--transition-duration) var(--animation-timing);
 }
 
 .project-card:hover .overlay-text {
     transform: translateY(0);
 }
 
+.modal-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 72px 24px 24px 24px;
+}
+
+.modal-content {
+    padding-top: 0;
+}
+
 
 .modal-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
     margin-bottom: 8px;
 }
 
 .modal-input {
     color: var(--color-slate);
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0.48px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.modal-icon-wrapper {
+    width: 100%;
+    position: relative;
+}
+.modal-input {
+    width: 100%;
+    height: 40px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    background-color: transparent;
+    padding-left: 38px;
+    outline: transparent;
+    transition: border-color var(--transition-duration) var(--animation-timing);
+}
+
+.modal-input:focus {
+    border-color: var(--color-iris);
+}
+
+.modal-input:focus .modal-icon {
+    fill: var(--color-iris);
+}
+
+.modal-icon {
+    fill: var(--color-navy-blue);
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: fill var(--transition-duration) var(--animation-timing);
+}
+
+.modal-check-wrapper {
+    margin-top: 16px;
+}
+
+.modal-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-navy-blue);
+    text-align: center;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.32px;
+    margin-bottom: 16px;
+    display: block;
+    padding-top: 72px;
+}
+
+.modal-label {
+    color: var(--color-lightslate);
     font-family: Roboto;
     font-size: 12px;
     font-style: normal;
@@ -814,7 +899,7 @@ address {
     resize: none;
     background-color: transparent;
     color: rgba(46, 47, 66, 0.4);
-    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: border-color var(--transition-duration) var(--animation-timing);
 }
 
 .comment-text-field::placeholder {
@@ -825,72 +910,18 @@ address {
     border-color: var(--color-iris);
 }
 
-.modal-icon-wrapper {
-    position: relative;
-}
-
-.modal-input {
-    width: 100%;
-    height: 40px;
-    flex-shrink: 0;
-    border-radius: 4px;
-    border: 1px solid rgba(46, 47, 66, 0.4);
-    background-color: transparent;
-    padding-left: 38px;
-    outline: transparent;
-    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.modal-input:focus {
-    border-color: var(--color-iris);
-}
-
-.modal-input:focus .modal-icon {
-    fill: var(--color-iris);
-}
-
-.modal-icon {
-    fill: var(--color-navy-blue);
-    position: absolute;
-    left: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.comment-container {
-    margin-bottom: 16px;
-}
-
-.modal-title {
-    color: var(--color-navy-blue);
-    text-align: center;
-    font-family: Roboto;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: 0.32px;
-    margin-bottom: 16px;
-    display: block;
-}
-
-.modal-label {
-    color: var(--color-lightslate);
-    font-family: Roboto;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 14px;
-    letter-spacing: 0.48px;
-    display: block;
-    margin-bottom: 4px;
-}
-
 .modal-check-input {
     visibility: hidden;
 }
 
-.modal-check-box {
+.modal-check-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal-check-wrapper label svg {
     width: 16px;
     height: 16px;
     border-radius: 2px;
@@ -900,20 +931,25 @@ address {
     align-items: center;
     justify-content: center;
     fill: transparent;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        border 250ms cubic-bezier(0.4, 0, 0.2, 1),
-        fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color var(--transition-duration) var(--animation-timing),
+        border var(--transition-duration) var(--animation-timing),
+        fill var(--transition-duration) var(--animation-timing);
     cursor: pointer;
 }
 
-.modal-check-input:checked+.modal-text .modal-check-box {
-    background-color: var(--color-ocean);
-    border: none;
-    fill: var(--color-cloud);
+.modal-check-wrapper label a {
+    text-decoration: underline;
+    color: var(--color-iris);
+    transition: color var(--transition-duration) var(--animation-timing);
 }
 
-.modal-check-box:hover, 
-.modal-checkbox:focus {
+.modal-check-wrapper .modal-check-input:checked + label svg {
+    fill: var(--color-white);
+    background-color: var(--color-iris);
+}
+
+.modal-check-wrapper label a:hover, 
+.modal-check-wrapper label a:focus {
     border-color: var(--color-ocean);
 }
 
@@ -933,7 +969,7 @@ address {
     margin-left: 4px;
     color: var(--color-iris);
     text-decoration: underline;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color var(--transition-duration) var(--animation-timing);
 }
 
 .modal-link-text:hover,
@@ -963,7 +999,7 @@ address {
     text-align: center;
     border: none;
     cursor: pointer;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color var(--transition-duration) var(--animation-timing);
 }
 
 .modal-button-submit:hover,
