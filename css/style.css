@@ -944,7 +944,7 @@ address {
     transition: color var(--transition-duration) var(--animation-timing);
 }
 
-.modal-check-wrapper .modal-check-input:checked + .modal-text .modal-icon-check{
+.modal-check-input:checked + .modal-icon-check {
     fill: var(--color-white);
     background-color: var(--color-iris);
 }
