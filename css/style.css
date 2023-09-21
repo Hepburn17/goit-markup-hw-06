@@ -933,15 +933,11 @@ address {
 
 .modal-icon-check {
     display: block;
-    align-items: center;
-    justify-content: center;
     width: 16px;
     height: 16px;
     border-radius: 2px;
+    border-radius: 2px;
     border: 1px solid  rgba(46, 47, 66, 0.40);
-    transition: background-color var(--transition-duration) var(--animation-timing),
-        border var(--transition-duration) var(--animation-timing),
-        fill var(--transition-duration) var(--animation-timing);
     cursor: pointer;
 }
 
@@ -953,6 +949,7 @@ address {
 }
 
 .modal-check-input:checked+.chekmark-icon {
+    background-size: contain;
     fill: var(--color-white);
     background-color: var(--color-iris);
 }
