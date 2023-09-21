@@ -933,6 +933,8 @@ address {
 
 .modal-icon-check {
     display: block;
+    align-items: center;
+    justify-content: center;
     width: 16px;
     height: 16px;
     border-radius: 2px;
