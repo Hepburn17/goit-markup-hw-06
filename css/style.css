@@ -933,8 +933,8 @@ address {
 
 .modal-icon-check {
     display: block;
-    width: 10px;
-    height: 8px;
+    width: 16px;
+    height: 16px;
     border-radius: 2px;
     border: 1px solid  rgba(46, 47, 66, 0.40);
     cursor: pointer;
