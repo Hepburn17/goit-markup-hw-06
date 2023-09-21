@@ -854,10 +854,6 @@ address {
     transition: fill var(--transition-duration) var(--animation-timing);
 }
 
-.modal-check-wrapper {
-    margin-top: 16px;
-}
-
 .modal-title {
     display: flex;
     justify-content: center;
@@ -899,12 +895,20 @@ address {
     outline: transparent;
     resize: none;
     background-color: transparent;
+    padding-top: 8px;
+    padding-left: 16px;
     color: rgba(46, 47, 66, 0.4);
     transition: border-color var(--transition-duration) var(--animation-timing);
 }
 
 .comment-text-field::placeholder {
     color: rgba(46, 47, 66, 0.4);
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 0.875em;
+    letter-spacing: 0.48px;
 }
 
 .comment-text-field:focus {
@@ -913,40 +917,46 @@ address {
 
 .modal-check-input {
     visibility: hidden;
+    position:absolute;
 }
 
 .modal-check-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
+    color: var(--color-lightslate);
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0.48px;
+    margin-top: 16px;
 }
 
-.modal-check-wrapper label svg {
+.modal-icon-check {
+    display: block;
     width: 16px;
     height: 16px;
     border-radius: 2px;
-    border: 1px solid rgba(46, 47, 66, 0.4);
-    margin-right: 8px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    fill: transparent;
+    border: 1px solid  rgba(46, 47, 66, 0.40);
     transition: background-color var(--transition-duration) var(--animation-timing),
         border var(--transition-duration) var(--animation-timing),
         fill var(--transition-duration) var(--animation-timing);
     cursor: pointer;
 }
 
-.modal-check-wrapper label a {
-    text-decoration: underline;
-    color: var(--color-iris);
-    transition: color var(--transition-duration) var(--animation-timing);
+.chekmark-icon {
+    display: inline-flex;
+    border-radius: 2px;
+    fill: none;
+    transition: border var(--transition-duration) var(--animation-timing)
 }
 
-.modal-check-input:checked+.modal-text .modal-icon-check {
+.modal-check-input:checked+.chekmark-icon {
     fill: var(--color-white);
     background-color: var(--color-iris);
+}
+
+.modal-icon-check:hover {
+    border: 1px solid var(--color-iris);
 }
 
 .modal-check-wrapper label a:hover, 
@@ -956,14 +966,13 @@ address {
 
 
 .modal-text {
-    color: var(--color-slate);
-    font-family: Roboto;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 14px;
-    letter-spacing: 0.48px;
-    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 360px;
+    height: 16px;
+    gap: 8px;
+    margin-bottom: 24px;
 }
 
 .modal-link-text {
@@ -976,10 +985,6 @@ address {
 .modal-link-text:hover,
 .modal-link-text:focus {
     color: var(--color-ocean);
-}
-
-.modal-check-wrapper {
-    margin-bottom: 24px;
 }
 
 .modal-button-submit {
